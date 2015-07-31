@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd
+">
+
+    <!-- data source-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close">
+        <property name="driverClass" value="${db.driver}"/>
+        <property name="jdbcUrl" value="${db.jdbc.url}"/>
+        <property name="user" value="${db.user}"/>
+        <property name="password" value="${db.pwd}"/>
+        <property name="autoCommitOnClose" value="true"/>
+        <property name="checkoutTimeout" value="${db.pool.checkoutTimeout}"/>
+        <property name="initialPoolSize" value="${db.pool.initSize}"/>
+        <property name="minPoolSize" value="${db.pool.minSize}"/>
+        <property name="maxPoolSize" value="${db.pool.maxSize}"/>
+        <property name="maxIdleTime" value="${db.pool.idleSec}"/>
+        <property name="acquireIncrement" value="${db.pool.acquireIncrement}"/>
+        <property name="acquireRetryAttempts" value="${db.pool.acquireRetryAttempts}"/>
+    </bean>
+
+    <!-- session factory -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:/mybatis/mapper/**/*.xml"/>
+        <property name="configLocation">
+            <bean class="org.springframework.core.io.ClassPathResource">
+                <constructor-arg index="0" value="mybatis-config.xml"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- mybatis transaction manager -->
+    <bean id="mybatisTransactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- mybatis scanner TODO basePackage -->
+    <mybatis:scan base-package="" factory-ref="sqlSessionFactoryBean"/>
+
+</beans>

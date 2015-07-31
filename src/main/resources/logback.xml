@@ -1,0 +1,44 @@
+<configuration>
+    <appender name="dailyFileRollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logger.dir}all_%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${logger.pattern}</pattern>
+        </encoder>
+
+    </appender>
+
+    <appender name="dailySQLFileRollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logger.dir}sql_%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${logger.pattern}</pattern>
+        </encoder>
+
+    </appender>
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${logger.pattern}</pattern>
+        </encoder>
+
+    </appender>
+
+    <!-- logger -->
+    <root level="${logger.root.level}">
+        <appender-ref ref="${logger.root.appender}"/>
+    </root>
+
+    <!-- mybatis -->
+    <logger name="cn.wzga.piqc.mapper" level="${logger.sql.mybatis.level}" additivity="false">
+        <appender-ref ref="${logger.sql.appender}"/>
+    </logger>
+
+    <!-- TODO app log -->
+
+
+</configuration>
