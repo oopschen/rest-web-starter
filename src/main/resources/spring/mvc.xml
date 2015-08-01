@@ -9,6 +9,13 @@
 
     <mvc:annotation-driven/>
 
-    <!-- TODO interceptors -->
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <bean class="org.springframework.beans.propertyeditors.StringTrimmerEditor"/>
+            </list>
+        </property>
+    </bean>
 
+    <!-- TODO interceptors -->
 </beans>
