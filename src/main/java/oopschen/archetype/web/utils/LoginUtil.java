@@ -2,6 +2,8 @@ package oopschen.archetype.web.utils;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -15,6 +17,8 @@ import java.io.IOException;
  * @since 1.0
  */
 public abstract class LoginUtil {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginUtil.class);
+
     private LoginUtil() {
     }
 
@@ -40,11 +44,13 @@ public abstract class LoginUtil {
             dataOutputStream.writeLong(random);
             bytes = byteArrayOutputStream.toByteArray();
         } catch (IOException e) {
+            LOGGER.error("encodeLoginSecret io", e);
         } finally {
             try {
                 dataOutputStream.close();
                 byteArrayOutputStream.close();
             } catch (IOException e) {
+                LOGGER.error("encodeLoginSecret io close", e);
             }
         }
 

@@ -37,9 +37,9 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
             idCookie = CookieUtil.findCookieByName(GlobalConfig.COOKIE_LOGIN_ID_NAME, request),
             randCookie = CookieUtil.findCookieByName(GlobalConfig.COOKIE_LOGIN_ID_NAME, request);
 
-        if (null == randCookie || null == secretCookie || null == randCookie || StringUtils
+        if (null == randCookie || null == secretCookie || null == idCookie || StringUtils
             .isBlank(randCookie.getValue()) || StringUtils.isBlank(secretCookie.getValue())
-            || StringUtils.isBlank(randCookie.getValue())) {
+            || StringUtils.isBlank(idCookie.getValue())) {
             return false;
         }
 
