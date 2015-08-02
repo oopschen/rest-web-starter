@@ -1,4 +1,4 @@
-package oopschen.web;
+package oopschen.archetype.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;

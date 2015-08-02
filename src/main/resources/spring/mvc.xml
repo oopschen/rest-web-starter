@@ -47,12 +47,12 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="oopschen.web.interceptors.LoginCheckInterceptor"/>
+            <bean class="oopschen.archetype.web.interceptors.LoginCheckInterceptor"/>
         </mvc:interceptor>
 
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="oopschen.web.interceptors.CleanupProcessContextInterceptor"/>
+            <bean class="oopschen.archetype.web.interceptors.CleanupProcessContextInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>

@@ -1,4 +1,4 @@
-package oopschen.web.config;
+package oopschen.archetype.web.config;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -1,4 +1,4 @@
-package oopschen.web.utils;
+package oopschen.archetype.web.utils;
 
 import org.apache.commons.lang3.StringUtils;
 

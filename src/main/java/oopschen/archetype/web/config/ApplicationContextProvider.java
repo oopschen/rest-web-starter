@@ -1,4 +1,4 @@
-package oopschen.web.config;
+package oopschen.archetype.web.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

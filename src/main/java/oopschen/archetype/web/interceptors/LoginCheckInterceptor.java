@@ -1,10 +1,10 @@
-package oopschen.web.interceptors;
+package oopschen.archetype.web.interceptors;
 
-import oopschen.web.config.GlobalConfig;
-import oopschen.web.config.ProcessContext;
-import oopschen.web.utils.CookieUtil;
-import oopschen.web.utils.LoginUtil;
-import oopschen.web.utils.RequestUtil;
+import oopschen.archetype.web.config.GlobalConfig;
+import oopschen.archetype.web.config.ProcessContext;
+import oopschen.archetype.web.utils.CookieUtil;
+import oopschen.archetype.web.utils.LoginUtil;
+import oopschen.archetype.web.utils.RequestUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 

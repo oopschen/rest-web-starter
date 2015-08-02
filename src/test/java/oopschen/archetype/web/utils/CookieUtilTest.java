@@ -1,4 +1,4 @@
-package oopschen.web.utils;
+package oopschen.archetype.web.utils;
 
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.testng.Assert;

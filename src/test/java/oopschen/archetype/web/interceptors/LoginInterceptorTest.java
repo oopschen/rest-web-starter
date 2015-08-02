@@ -1,6 +1,6 @@
-package oopschen.web.interceptors;
+package oopschen.archetype.web.interceptors;
 
-import oopschen.web.BaseMVCTest;
+import oopschen.archetype.web.BaseMVCTest;
 import org.testng.annotations.Test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

@@ -1,6 +1,6 @@
-package oopschen.web.interceptors;
+package oopschen.archetype.web.interceptors;
 
-import oopschen.web.config.ProcessContext;
+import oopschen.archetype.web.config.ProcessContext;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
