@@ -36,7 +36,7 @@
     </bean>
 
     <!-- mybatis transaction manager -->
-    <bean id="mybatisTransactionManager"
+    <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
