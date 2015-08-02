@@ -10,17 +10,6 @@
 
     </appender>
 
-    <appender name="dailySQLFileRollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logger.dir}/sql_%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${logger.pattern}</pattern>
-        </encoder>
-
-    </appender>
-
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>${logger.pattern}</pattern>
@@ -30,10 +19,12 @@
 
     <!-- logger -->
     <root level="${logger.root.level}">
-        <appender-ref ref="${logger.root.appender}"/>
+        <appender-ref ref="${logger.appender}"/>
     </root>
 
-    <!-- TODO app log -->
 
+    <logger name="oopschen.archetype.web" level="${logger.app.level}" additivity="false">
+        <appender-ref ref="${logger.appender}"/>
+    </logger>
 
 </configuration>

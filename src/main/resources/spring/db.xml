@@ -41,7 +41,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!-- mybatis scanner TODO basePackage -->
-    <mybatis:scan base-package="" factory-ref="sqlSessionFactoryBean"/>
+    <!-- mybatis scanner -->
+    <mybatis:scan base-package="oopschen.archettype.web.mapper" factory-ref="sqlSessionFactoryBean"/>
 
 </beans>

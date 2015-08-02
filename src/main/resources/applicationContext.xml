@@ -7,8 +7,8 @@
        ">
 
     <context:annotation-config/>
-    <!-- TODO basePackage -->
-    <context:component-scan base-package=""/>
+    <context:component-scan
+            base-package="oopschen.archetype.web.controller,oopschen.archetype.web.service"/>
 
     <import resource="spring/db.xml"/>
     <import resource="spring/mvc.xml"/>

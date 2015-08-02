@@ -8,9 +8,8 @@
         <setting name="logImpl" value="SLF4J"/>
     </settings>
 
-    <!-- TODO package name -->
     <typeAliases>
-        <package name=""/>
+        <package name="oopschen.archetype.web.do"/>
     </typeAliases>
 
 </configuration>
