@@ -17,5 +17,21 @@
         </property>
     </bean>
 
+    <bean id="configProps" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:config.properties"/>
+    </bean>
+
+
     <!-- TODO interceptors -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="oopschen.web.interceptors.LoginCheckInterceptor"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="oopschen.web.interceptors.CleanupProcessContextInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
