@@ -33,7 +33,7 @@
     <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
         <property name="propertyEditorRegistrars">
             <list>
-                <bean class="org.springframework.beans.propertyeditors.StringTrimmerEditor"/>
+                <bean class="oopschen.archetype.web.config.CustomPropertyEditorRegistrars"/>
             </list>
         </property>
     </bean>
