@@ -42,6 +42,6 @@
     </bean>
 
     <!-- mybatis scanner -->
-    <mybatis:scan base-package="oopschen.archettype.web.mapper" factory-ref="sqlSessionFactoryBean"/>
+    <mybatis:scan base-package="oopschen.archetype.web.mapper" factory-ref="sqlSessionFactoryBean"/>
 
 </beans>
