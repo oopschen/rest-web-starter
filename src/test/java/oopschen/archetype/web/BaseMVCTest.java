@@ -16,13 +16,16 @@ import org.testng.annotations.BeforeMethod;
  * @date 2015-08-02
  * @since 1.0
  */
-@ContextConfiguration(locations = {"classpath:applicationContext.xml"}) @WebAppConfiguration
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+@WebAppConfiguration
 public abstract class BaseMVCTest extends AbstractTransactionalTestNGSpringContextTests {
-    @Autowired private WebApplicationContext wac;
+    @Autowired
+    private WebApplicationContext wac;
 
     private MockMvc mockMvc;
 
-    @BeforeMethod public void setup() {
+    @BeforeMethod
+    public void setup() {
         if (null == mockMvc) {
             this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
         }

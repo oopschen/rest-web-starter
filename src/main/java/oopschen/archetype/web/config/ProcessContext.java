@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public abstract class ProcessContext {
     private static final ThreadLocal<Map<String, Object>> CONTEXT =
-        new ThreadLocal<Map<String, Object>>();
+            new ThreadLocal<Map<String, Object>>();
 
     private ProcessContext() {
     }

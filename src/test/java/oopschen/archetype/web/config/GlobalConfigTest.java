@@ -1,8 +1,9 @@
 package oopschen.archetype.web.config;
 
-import oopschen.archetype.web.BaseMVCTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import oopschen.archetype.web.BaseMVCTest;
 
 /**
  * <p>Global test</p>

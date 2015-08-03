@@ -1,7 +1,8 @@
 package oopschen.archetype.web.interceptors;
 
-import oopschen.archetype.web.BaseMVCTest;
 import org.testng.annotations.Test;
+
+import oopschen.archetype.web.BaseMVCTest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -14,7 +15,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @since 1.0
  */
 public class LoginInterceptorTest extends BaseMVCTest {
-    @Test public void login() throws Exception {
+    @Test
+    public void login() throws Exception {
         getMockMvc().perform(get("/login")).andExpect(status().isOk());
 
     }

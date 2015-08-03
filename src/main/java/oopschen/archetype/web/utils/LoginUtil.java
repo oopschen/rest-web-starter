@@ -24,10 +24,6 @@ public abstract class LoginUtil {
 
     /**
      * <p>encode login secret based on sha256(ip+userID+randomNumber)</p>
-     *
-     * @param remoteIP
-     * @param userID
-     * @return
      */
     public static final String encodeLoginSecret(String remoteIP, String userID, long random) {
         if (StringUtils.isBlank(remoteIP) || StringUtils.isBlank(userID)) {

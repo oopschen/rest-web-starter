@@ -21,7 +21,7 @@ public class CustomPropertyEditorRegistrars implements PropertyEditorRegistrar {
         registry.registerCustomEditor(String.class, new StringTrimmerEditor(true));
         // date
         registry.registerCustomEditor(java.util.Date.class,
-            new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true));
+                new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true));
 
     }
 }

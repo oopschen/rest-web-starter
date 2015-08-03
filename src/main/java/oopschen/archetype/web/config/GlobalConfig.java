@@ -12,7 +12,6 @@ import java.util.Properties;
  * @since 1.0
  */
 public abstract class GlobalConfig {
-
     public static final String COOKIE_LOGIN_SECRET_NAME = "cookie.login.secret";
     public static final String COOKIE_LOGIN_ID_NAME = "cookie.login.id";
     public static final String COOKIE_LOGIN_RANDOM_NAME = "cookie.login.rand";

@@ -1,8 +1,9 @@
 package oopschen.archetype.web;
 
-import oopschen.archetype.web.utils.LoginUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import oopschen.archetype.web.utils.LoginUtil;
 
 /**
  * <p>login test</p>
