@@ -21,9 +21,9 @@
                 <property name="featuresToDisable">
                     <array>
                         <util:constant
-                                static-field="com.fasterxml.jackson.databind.MapperFeature$WRITE_NULL_MAP_VALUES"/>
+                                static-field="com.fasterxml.jackson.databind.SerializationFeature.WRITE_NULL_MAP_VALUES"/>
                         <util:constant
-                                static-field="com.fasterxml.jackson.databind.MapperFeature$WRITE_EMPTY_JSON_ARRAYS"/>
+                                static-field="com.fasterxml.jackson.databind.SerializationFeature.WRITE_EMPTY_JSON_ARRAYS"/>
                     </array>
                 </property>
             </bean>
@@ -38,10 +38,12 @@
         </property>
     </bean>
 
+    <!-- init config.properties -->
     <bean id="configProps" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="location" value="classpath:config.properties"/>
     </bean>
 
+    <bean class="com.kq.wx.config.ApplicationContextProvider"/>
 
     <!-- TODO interceptors -->
     <mvc:interceptors>

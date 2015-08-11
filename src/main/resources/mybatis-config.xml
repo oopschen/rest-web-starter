@@ -9,7 +9,7 @@
     </settings>
 
     <typeAliases>
-        <package name="oopschen.archetype.web.do"/>
+        <package name="oopschen.archetype.model"/>
     </typeAliases>
 
 </configuration>
