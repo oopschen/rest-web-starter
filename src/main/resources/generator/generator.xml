@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="kq" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="org.mariadb.jdbc.Driver"
+                        connectionURL=""
+                        userId=""
+                        password="">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.kq.wx.model.generator" targetProject="src/main/java">
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="wx.generator" targetProject="src/main/resources/mybatis">
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kq.wx.mapper.generator"
+                             targetProject="src/main/java">
+        </javaClientGenerator>
+
+        <table tableName="company">
+        </table>
+
+        <table tableName="wx_service_acc">
+        </table>
+
+        <table tableName="wx_user_acc">
+        </table>
+
+        <table tableName="wx_service_user_acc">
+        </table>
+    </context>
+</generatorConfiguration>

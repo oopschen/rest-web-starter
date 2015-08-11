@@ -16,6 +16,7 @@
         <version.mybatis>3.3.0</version.mybatis>
         <version.mybatis.spring>1.2.3</version.mybatis.spring>
         <version.testng>6.9.4</version.testng>
+        <version.mariadb>1.2.0</version.mariadb>
     </properties>
 
     <dependencies>
@@ -90,6 +91,12 @@
             <version>${version.spring}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${version.spring}</version>
+        </dependency>
+
         <!-- json utils -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -116,6 +123,12 @@
             <version>1.10</version>
         </dependency>
 
+        <!-- db -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>${version.mariadb}</version>
+        </dependency>
 
         <!-- db pool -->
         <dependency>
@@ -160,6 +173,7 @@
 
                 <excludes>
                     <exclude>mybatis/**/*.xml</exclude>
+                    <exclude>generator/</exclude>
                 </excludes>
             </resource>
 
@@ -196,6 +210,52 @@
                     <version>3.4</version>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.7.4.201502262128</version>
+                    <executions>
+                        <execution>
+                            <id>t1</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+
+                        <execution>
+                            <id>t2</id>
+                            <goals>
+                                <goal>prepare-agent-integration</goal>
+                            </goals>
+                        </execution>
+
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>1.3.0</version>
+                    <configuration>
+                        <configurationFile>src/main/resources/generator/generator.xml</configurationFile>
+                        <overwrite>true</overwrite>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>Generate MyBatis Artifacts</id>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.mariadb.jdbc</groupId>
+                            <artifactId>mariadb-java-client</artifactId>
+                            <version>${version.mariadb}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -216,25 +276,12 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.4.201502262128</version>
-                <executions>
-                    <execution>
-                        <id>t1</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>t2</id>
-                        <goals>
-                            <goal>prepare-agent-integration</goal>
-                        </goals>
-                    </execution>
-
-                </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 
