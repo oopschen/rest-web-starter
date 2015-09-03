@@ -20,11 +20,21 @@ public abstract class RequestUtil {
             return null;
         }
 
-        String remoteIP = request.getHeader("X-Forwarded-For");
-        if (StringUtils.isBlank(remoteIP)) {
-            remoteIP = request.getRemoteAddr();
+        // try real ip
+        String realIP = StringUtils.trimToNull(request.getHeader("X-Real-IP"));
+        if (StringUtils.isBlank(realIP)) {
+            String forwardIPs = StringUtils.trimToNull(request.getHeader("X-Forwarded-For"));
+            if (StringUtils.isBlank(forwardIPs)) {
+                realIP = request.getRemoteAddr();
+
+            } else {
+                String[] split = forwardIPs.split(",");
+                realIP = StringUtils.trimToNull(split[split.length - 1]);
+
+            }
+
         }
 
-        return remoteIP;
+        return realIP;
     }
 }
